@@ -19,20 +19,22 @@ Stack.stackMethods.index = 0;
 
 // 1. Check size
 Stack.stackMethods.size = function(){
-  return Stack.stackMethods.index;
+  return this.index;
 };
 
 // 2. Push
 Stack.stackMethods.push = function(value){
   // 1. add a key-value pair to the stack, 2. increment the index
-  Stack[Stack.stackMethods.index++] = value;
+  Stack[this.index++] = value;
 };
 
 // 3. Pop
 Stack.stackMethods.pop = function(){
   // 1. decrement the index, 2. return the last indexed item
-  Stack.stackMethods.index = Stack.stackMethods.index - 1;
-  console.log(Stack.stackMethods.size());
-  return Stack[Stack.stackMethods.index];
+  // this.index = this.index - 1;
+  // console.log(this.size());
+  if( this.size()) {
+    return Stack[--this.index];
+  }
 };
 
