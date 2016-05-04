@@ -64,9 +64,9 @@ define([
 
       it('allows sequentially additing and removing items', function() {
         stack.push('a');
-        console.log('size of stack, ', stack.size());
+        // console.log('size of stack, ', stack.size());
         expect(stack.pop()).to.equal('a');
-        console.log('size of stack, ', stack.size());
+        // console.log('size of stack, ', stack.size());
         stack.push('b');
         expect(stack.pop()).to.equal('b');
       });
