@@ -5,31 +5,31 @@ var Stack = function() {
   // make a new stack
   var giraffe = {};
   // extend with methods
-  _.extend(giraffe, Stack.stackMethods);
+  _.extend(giraffe, stackMethods);
   // console.log('giraffe: ', giraffe);
   // console.log('methods: ', Stack.stackMethods);
   // return the object we've built
   return giraffe;
 };
 
-Stack.stackMethods = {};
+stackMethods = {};
 
 // create an index to access in our methods
-Stack.stackMethods.index = 0;
+stackMethods.index = 0;
 
 // 1. Check size
-Stack.stackMethods.size = function(){
+stackMethods.size = function(){
   return this.index;
 };
 
 // 2. Push
-Stack.stackMethods.push = function(value){
+stackMethods.push = function(value){
   // 1. add a key-value pair to the stack, 2. increment the index
   Stack[this.index++] = value;
 };
 
 // 3. Pop
-Stack.stackMethods.pop = function(){
+stackMethods.pop = function(){
   // 1. decrement the index, 2. return the last indexed item
   // this.index = this.index - 1;
   // console.log(this.size());

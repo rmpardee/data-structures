@@ -35,6 +35,7 @@ define([
       verifyClass(instantiator).followsPattern(variant, {}, prototypeOfInstances);
 
       it('reports a size of zero for a new stack', function() {
+        // console.log('hello');
         expect(stack.size()).to.equal(0);
       });
 
@@ -115,23 +116,32 @@ define([
       verifyClass(instantiator).followsPattern(variant, {}, prototypeOfInstances);
 
       it('reports a size of zero for a new queue', function() {
+        console.log('initial size - test 1. ', queue.size())
         expect(queue.size()).to.equal(0);
       });
 
       it('reports a size of 2 after adding two items', function() {
+        console.log('initial size - test 2. ', queue.size())
         queue.enqueue('a');
         queue.enqueue('b');
         expect(queue.size()).to.equal(2);
+        console.log('initial size - after test 2. ', queue.size())
       });
 
       it('does not error when removing from an empty queue', function() {
+        console.log('initial size - before test 3. ', queue.size())
         expect(function(){ queue.dequeue(); }).not.throws();
+        console.log('initial size - after test 3. ', queue.size())
       });
 
       it('reports a size of 1 after adding two items and removing one', function() {
+        console.log('initial size. ', queue.size())
         queue.enqueue('a');
+        console.log('after add a. ', queue.size())
         queue.enqueue('b');
+        console.log('after add b. ', queue.size())
         queue.dequeue();
+        console.log('after dequeue. ', queue.size())
         expect(queue.size()).to.equal(1);
       });
 
