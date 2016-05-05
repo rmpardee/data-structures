@@ -17,12 +17,12 @@ queueMethods.size = function() {
 }
 
 queueMethods.enqueue = function(val) {
-  return Queue[this.endIndex++] = val;
+  return this[this.endIndex++] = val;
 }
 
 queueMethods.dequeue = function() {
 if(this.size() > 0) {
-  return Queue[this.frontIndex++];
+  return this[this.frontIndex++];
   }
 }
 

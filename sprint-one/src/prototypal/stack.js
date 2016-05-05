@@ -2,6 +2,8 @@ var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   var myStack = Object.create(stackMethods);
+  // seems to be equivalent to put it in the constructor or in the methods object, we'll leave in methods for best practice.
+  // myStack.index = 0;
   return myStack;
 };
 
@@ -14,12 +16,12 @@ stackMethods.size = function() {
 }
 
 stackMethods.push = function(val) {
-  return Stack[this.index++] = val;
+  return this[this.index++] = val;
 }
 
 stackMethods.pop = function() {
   if(this.size()) {
-    return Stack[--this.index];
+    return this[--this.index];
   }
 }
 

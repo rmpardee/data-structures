@@ -25,7 +25,7 @@ stackMethods.size = function(){
 // 2. Push
 stackMethods.push = function(value){
   // 1. add a key-value pair to the stack, 2. increment the index
-  Stack[this.index++] = value;
+  this[this.index++] = value;
 };
 
 // 3. Pop
@@ -34,7 +34,7 @@ stackMethods.pop = function(){
   // this.index = this.index - 1;
   // console.log(this.size());
   if( this.size()) {
-    return Stack[--this.index];
+    return this[--this.index];
   }
 };
 

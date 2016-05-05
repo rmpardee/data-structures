@@ -12,16 +12,16 @@ queueMethods.endIndex = 0;
 queueMethods.frontIndex = 0;
 
 queueMethods.size = function() {
-  return queueMethods.endIndex - queueMethods.frontIndex;
+  return this.endIndex - this.frontIndex;
 }
 
 queueMethods.enqueue = function(val) {
-  return Queue[queueMethods.endIndex++] = val;
+  return this[this.endIndex++] = val;
 }
 
 queueMethods.dequeue = function() {
-  if(queueMethods.size()) {
-    return Queue[queueMethods.frontIndex++];
+  if(this.size()) {
+    return this[this.frontIndex++];
   }
 }
 
