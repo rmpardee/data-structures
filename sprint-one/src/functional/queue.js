@@ -1,33 +1,34 @@
-var Queue = function(){
-  var someInstance = {};
-
+var Queue = function() {
   // Use an object with numeric keys to store values
   var storage = {};
 
-  // variable to keep track of end of the queue
-  var index = 0;
+  // Create an index to keep track of where we are adding things next in the storage array
+  var endIndex = 0;
+  // Create an index to keep track of where we are removings things next from the beginning of the storage array
+  var frontIndex = 0;
 
-  // variable to keep track of the front of the queue
-  var runningIndex = 0;
+  // The object we will be building and returning
+  var someInstance = {};
 
-  // Implement the methods below
-
-  someInstance.enqueue = function(value){
-    return storage[index++] = value;
+  // Add the methods to the object - methods will be recreated for each instance
+  someInstance.size = function() {
+    // The differece of the indeces will represent the size of the stack
+    return endIndex - frontIndex;
   };
 
-  someInstance.dequeue = function(){
-    // make sure the queue has some size
+  someInstance.enqueue = function(value) {
+    // Add the value at the current end index, then increment the end index
+    storage[endIndex++] = value;
+  };
+
+  someInstance.dequeue = function() {
+    // If there is anything in the object currently (it has some size)
     if (someInstance.size()) {
-      // 1. return the first value, 2. change the running index
-      return storage[runningIndex++];
+      // 1. return the first value, 2. change the running endIndex
+      return storage[frontIndex++];
     }
-
   };
 
-  someInstance.size = function(){
-    return index - runningIndex;
-  };
-
+  // Return the object we've added the methods to
   return someInstance;
 };
