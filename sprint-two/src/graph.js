@@ -54,8 +54,6 @@ Graph.prototype.addEdge = function(fromNode, toNode){
     this[fromNode].push(toNode);
     this[toNode].push(fromNode);
   }
-  // console.log('fromNode: ', this[fromNode][0]);
-  // console.log('toNode: ', this[toNode][0]);
 };
 
 // ------------------------
@@ -77,11 +75,11 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
 // ------------------------
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb){
+  // All methods of the prototype are appearing as keys in each instance.  So we will filter out the methods to only pass actual nodes to the callback.  
   for (var key in this) {
-    // console.log(typeof cb)
-    console.log('this: ', this)
-    console.log('key: ', key)
-    cb(key);
+    if (typeof this[key] !== 'function') {
+      cb(key);
+    }
   }
 };
 
