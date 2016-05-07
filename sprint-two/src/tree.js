@@ -31,7 +31,6 @@ treeMethods.addChild = function(value){
 treeMethods.contains = function(target){
   //create a state var and defualt to false
   var state = false;
-  console.log(this);
   //create a subroutine to recursivly check the children
   var targetSearch = function(currentTree) {
     //base case: chage state var to true if target = value
@@ -40,7 +39,6 @@ treeMethods.contains = function(target){
     }
     //recursive case: check each item in the children array
     else {
-      console.log(currentTree.children);
       for(var i = 0; i < currentTree.children.length; i++) {
         targetSearch(currentTree.children[i]);
       }
