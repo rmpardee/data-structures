@@ -11,6 +11,10 @@ describe('hashTable', function() {
     expect(hashTable.insert).to.be.a("function");
     expect(hashTable.remove).to.be.a("function");
     expect(hashTable.retrieve).to.be.a("function");
+    // checks to understand how hashTable works
+    // console.log('hashTable storage array: ', hashTable._storage);
+    // hashTable._storage.set(0, 'hello');
+    // console.log('get check (expect "hello"): ', hashTable._storage.get(0));
   });
 
   it('should store values that were inserted', function() {
