@@ -1,19 +1,13 @@
 var Tree = function(value){
   var newTree = {};
-  newTree.value = value;
 
-  // your code here
-  newTree.children = [];  // fix me -- now fixed
-  //add the methodes to each instance of Tree
+  newTree.value = value;
+  newTree.children = [];
+  //add the methods to each instance of Tree
   _.extend(newTree, treeMethods);
 
   return newTree;
 };
-
-
-  // your code here
-  // newTree.children = [];  // changed null to []
-
 
 var treeMethods = {};
 
@@ -23,9 +17,6 @@ treeMethods.addChild = function(value){
 
   //access the children property of the object add child is acting on (this) and push this new tree on to the end
   this.children.push(newChild);
-
-
-
 };
 
 treeMethods.contains = function(target){
@@ -43,7 +34,7 @@ treeMethods.contains = function(target){
         targetSearch(currentTree.children[i]);
       }
     }
-  }
+  };
   targetSearch(this);
   //return state var
   return state;
