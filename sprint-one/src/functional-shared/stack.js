@@ -1,39 +1,33 @@
 var Stack = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
 
-  // make a new stack
-  var giraffe = {};
-  // extend with methods
-  _.extend(giraffe, stackMethods);
-  // console.log('giraffe: ', giraffe);
-  // console.log('methods: ', Stack.stackMethods);
-  // return the object we've built
-  return giraffe;
+  // Use an object with numeric keys to store values
+  var storage = {};
+  // Create an index to keep track of where to add the next value onto the storage object
+  storage.index = 0;
+  // Extend with methods object
+  _.extend(storage, stackMethods);
+  // Return the object we've built
+  return storage;
 };
 
-stackMethods = {};
+// Create the global object to hold our methods, which will be extended onto each instance
+var stackMethods = {};
 
-// create an index to access in our methods
-stackMethods.index = 0;
-
-// 1. Check size
-stackMethods.size = function(){
+// Add the methods to the method object
+stackMethods.size = function() {
+  // The index is used to keep track of the size of the stack
   return this.index;
 };
 
-// 2. Push
-stackMethods.push = function(value){
-  // 1. add a key-value pair to the stack, 2. increment the index
+stackMethods.push = function(value) {
+  // Add the value at the current index, then increment index
   this[this.index++] = value;
 };
 
-// 3. Pop
-stackMethods.pop = function(){
-  // 1. decrement the index, 2. return the last indexed item
-  // this.index = this.index - 1;
-  // console.log(this.size());
+stackMethods.pop = function() {
+  // If there is anything in the object currently (it has some size)
   if( this.size()) {
+    // First decrement the index (to get it to represent the last item added), and return the value at that index.
     return this[--this.index];
   }
 };

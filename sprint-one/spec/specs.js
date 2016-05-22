@@ -35,7 +35,6 @@ define([
       verifyClass(instantiator).followsPattern(variant, {}, prototypeOfInstances);
 
       it('reports a size of zero for a new stack', function() {
-        // console.log('hello');
         expect(stack.size()).to.equal(0);
       });
 
@@ -51,14 +50,8 @@ define([
 
       it('reports a size of 1 after adding two items and removing one', function() {
         stack.push('a');
-        // console.log('test size, ', stack.size());
-        // console.log('index, ', stack.index);
         stack.push('b');
-        // console.log('test size after B, ', stack.size());
-        // console.log('index after B, ', stack.index);
         stack.pop();
-        // console.log('test size after Pop, ', stack.size());
-        // console.log('index after Pop, ', stack.index);
         expect(stack.size()).to.equal(1);
       });
 
@@ -71,9 +64,7 @@ define([
 
       it('allows sequentially additing and removing items', function() {
         stack.push('a');
-        // console.log('size of stack, ', stack.size());
         expect(stack.pop()).to.equal('a');
-        // console.log('size of stack, ', stack.size());
         stack.push('b');
         expect(stack.pop()).to.equal('b');
       });
@@ -116,32 +107,25 @@ define([
       verifyClass(instantiator).followsPattern(variant, {}, prototypeOfInstances);
 
       it('reports a size of zero for a new queue', function() {
-        // console.log('initial size - test 1. ', queue.size())
+
         expect(queue.size()).to.equal(0);
       });
 
       it('reports a size of 2 after adding two items', function() {
-        // console.log('initial size - test 2. ', queue.size())
+
         queue.enqueue('a');
         queue.enqueue('b');
         expect(queue.size()).to.equal(2);
-        // console.log('initial size - after test 2. ', queue.size())
       });
 
       it('does not error when removing from an empty queue', function() {
-        // console.log('initial size - before test 3. ', queue.size())
         expect(function(){ queue.dequeue(); }).not.throws();
-        // console.log('initial size - after test 3. ', queue.size())
       });
 
       it('reports a size of 1 after adding two items and removing one', function() {
-        // console.log('initial size. ', queue.size())
         queue.enqueue('a');
-        // console.log('after add a. ', queue.size())
         queue.enqueue('b');
-        // console.log('after add b. ', queue.size())
         queue.dequeue();
-        // console.log('after dequeue. ', queue.size())
         expect(queue.size()).to.equal(1);
       });
 
